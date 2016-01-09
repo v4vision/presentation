@@ -29,6 +29,19 @@ $headingTextTransform: none;
 $selectionBackgroundColor: #e7ad52;
 $mainFontSize: 30px;
 
+.green-tick {
+  color: #2ecc71;
+}
+
+.yellow-mark {
+  color: $linkColor;
+}
+
+h2.yellow-background {
+  width: 340px;
+  color: #fff !important;
+  background-color: $linkColor;
+}
 
 // Theme template ------------------------------
 @import "../template/theme";

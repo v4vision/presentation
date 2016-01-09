@@ -52,8 +52,14 @@ body {
 	word-wrap: break-word;
 }
 
-.reveal h1 {font-size: $heading1Size; }
-.reveal h2 {font-size: $heading2Size; }
+.reveal h1 {
+	color: #e7ad52;
+	font-size: $heading1Size;
+}
+.reveal h2 {
+	color: #e7ad52;
+	font-size: $heading2Size;
+}
 .reveal h3 {font-size: $heading3Size; }
 .reveal h4 {font-size: $heading4Size; }
 
@@ -341,5 +347,3 @@ body {
 		   -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 	}
-
-
