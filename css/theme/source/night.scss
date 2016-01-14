@@ -14,7 +14,7 @@
 // Include theme-specific fonts
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
-
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #111;
@@ -28,6 +28,13 @@ $headingLetterSpacing: -0.03em;
 $headingTextTransform: none;
 $selectionBackgroundColor: #e7ad52;
 $mainFontSize: 30px;
+
+pre.code-block code{
+  max-height: 500px !important;
+  font-family: 'Roboto Mono';
+  font-size: 18px;
+  background-color: $backgroundColor !important;
+}
 
 .green-tick {
   color: #2ecc71;

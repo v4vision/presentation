@@ -5,6 +5,13 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+pre.code-block code {
+  max-height: 500px !important;
+  font-family: 'Roboto Mono';
+  font-size: 18px;
+  background-color: #111 !important; }
+
 .green-tick {
   color: #2ecc71; }
 

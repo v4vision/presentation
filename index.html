@@ -149,15 +149,52 @@
 				</section>
 
 				<section>
-					<h2>Project Implementation</h2>
-					<p>
-						<ul>
-							<li>Extensible</li>
-							<li>Adaptable</li>
-							<li>Reusable</li>
-							<li>High-performance</li>
-						</ul>
-					</p>
+					<section>
+						<h2>Project Implementation</h2>
+						<p>
+							<ul>
+								<li>Extensible</li>
+								<li>Adaptable</li>
+								<li>Reusable</li>
+								<li>High-performance</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<section>
+							<h2>Harris Corner Detection Kernel</h2>
+
+							<p>
+								<pre class="code-block"><code data-trim data-noescape>
+									uchar4 __attribute__((kernel)) harris(const uchar4 in, uint32_t x, uint32_t y)
+	{
+	    float c = 0.04;
+
+	    float4 convXpixel = rsUnpackColor8888(rsGetElementAt_uchar4(convX, x, y));
+	    float4 convYpixel = rsUnpackColor8888(rsGetElementAt_uchar4(convY, x, y));
+
+	    float Ix = convXpixel.r * gMonoMult[0] + convXpixel.g * gMonoMult[1] +
+			convXpixel.b * gMonoMult[2];
+	    float Iy = convYpixel.r * gMonoMult[0] + convYpixel.g * gMonoMult[1] +
+			convYpixel.b * gMonoMult[2];
+	    float Ixx = Ix * Ix;
+	    float Iyy = Iy * Iy;
+	    float Ixy = Ix * Iy;
+
+	    float cornerResponse = (Ixx*Iyy - Ixy*Ixy - c*(Ixx+Iyy)*(Ixx+Iyy));
+	    if(cornerResponse < harrisThreshold ) {
+	        cornerColorRGB.r = 0;
+	        cornerColorRGB.g = 255;
+	        cornerColorRGB.b = 0;
+	        return cornerColorRGB;
+	    } else {
+	        return in;
+	    }
+	}
+	    					</code></pre>
+							</p>
+						</section>
+					</section>
 				</section>
 
 				<section>
@@ -173,6 +210,10 @@
 
 				<section>
 					<h2>Demo</h2>
+
+					<video controls>
+						<source data-src="img/demo.mp4" type="video/mp4" />
+					</video>
 				</section>
 
 				<section>
